@@ -25,4 +25,28 @@ public class Vetor {
 
     System.out.println("Foi adicionado o: " + elemento);
   }
+
+  public int tamanho(){
+    return this.tamanho;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder s = new StringBuilder();
+    s.append("[");
+    int i = 0;
+
+    while (i < this.tamanho - 1) {
+      s.append(this.elementos[i]);
+      s.append(", ");
+      i++;
+    }
+
+    if (this.tamanho > 0) {
+      s.append(this.elementos[this.tamanho - 1]);
+    }
+
+    s.append("]");
+    return s.toString();
+  }
 }
