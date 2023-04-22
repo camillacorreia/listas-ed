@@ -26,6 +26,29 @@ public class Vetor {
     System.out.println("Foi adicionado o: " + elemento);
   }
 
+  // 0 1 2 3 4 5 6 = tamanho é 5
+  // B C E F G + +
+  // Colocar D na posicao 2
+  public boolean adicionarNaPosicao(int posicao, String elemento){
+
+    if (!(posicao >= 0 && posicao < tamanho)){
+      throw new IllegalArgumentException("Posição inválida");
+    }
+
+    //mover todos os elementos
+    int i = this.tamanho - 1;
+    while (i >= posicao) {
+      this.elementos[i + 1] = this.elementos[i];
+      i--;
+    }
+
+    //colocar o elemento na posicao
+    this.elementos[posicao] = elemento;
+    this.tamanho++;
+
+    return true;
+  }
+
   public String buscarPosicao(int posicao){
     if (!(posicao >= 0 && posicao < tamanho)){
       throw new IllegalArgumentException("Posição inválida");
