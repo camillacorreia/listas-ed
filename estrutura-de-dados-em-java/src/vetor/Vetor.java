@@ -33,6 +33,18 @@ public class Vetor {
     return this.elementos[posicao];
   }
 
+  public int buscar(String elemento){
+    int i = 0;
+    while (i < this.tamanho && this.elementos[i] != elemento) {
+      i++;
+    }
+    if (i == this.tamanho) {
+      return -1;
+    } else {
+      return i;
+    }
+  }
+
   public int tamanho(){
     return this.tamanho;
   }
