@@ -1,42 +1,31 @@
 class Pilha:
-  def __init__(self, max_itens=100):
+  def __init__(self, maxelem):
+    self.pilha = [0] * maxelem
     self.tamanho = 0
-    self.max_itens = max_itens
-    self.estrutura = [None] * self.max_itens
 
-  def __del__(self):
-    del self.estrutura
+  def empilhar(self, x):
+    i = 0
+    while i < self.tamanho and self.pilha[i] != x:
+      i += 1
+    if i == self.tamanho:
+      if self.tamanho < len(self.pilha):
+        self.pilha[self.tamanho] = x
+        self.tamanho += 1
 
-  def estacheia(self):
-    return self.tamanho == self.max_itens
-
-  def estavazia(self):
-    return self.tamanho == 0
-
-  def inserir(self, item):
-    if self.estacheia():
-      print("A pilha está cheia!\nNão é possível inserir este elemento!")
-    else:
-      self.estrutura[self.tamanho] = item
-      self.tamanho += 1
-
-  def remover(self):
-    if self.estavazia():
-      print("A pilha está vazia!\nNão tem elemento para ser removido!")
-      return 0
-    else:
-      self.tamanho -= 1
-      item = self.estrutura[self.tamanho]
-      self.estrutura[self.tamanho] = None
-      return item
+  def desempilhar(self):
+    if self.tamanho == 0:
+      return False
+    
+    self.tamanho -= 1
 
   def imprimir(self):
-    print("Pilha: [ ", end="")
-    i = 0
-    while i < self.tamanho:
-      print(self.estrutura[i], end=" ")
-      i += 1
-    print("]")
+    print(self.pilha[:self.tamanho])
+  
+pilha = Pilha(5)
+pilha.empilhar(1)
+pilha.empilhar(2)
+pilha.imprimir()
 
-  def qualtamanho(self):
-    return self.tamanho
+pilha.desempilhar()
+pilha.imprimir()
+    
