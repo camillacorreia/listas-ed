@@ -32,6 +32,14 @@ public class Pilha {
     return this.elementos[this.tamanho - 1];
   }
 
+  public String desempilhar(){
+   if(this.estaVazia()){
+     return null;
+   }
+
+   return this.elementos[--tamanho];
+  }
+
   private void aumentarCapacidade(){
     if (this.tamanho == this.elementos.length) {
       String[] elementosNovos = new String[this.elementos.length * 2];
