@@ -23,6 +23,17 @@ public class Fila {
       }
     }
   }
+  public boolean estaVazia(){
+    return this.tamanho == 0;
+  }
+
+  public String primeiro(){
+    if(this.estaVazia()){
+      return null;
+    }
+
+    return this.elementos[0];
+  }
 
   private void aumentarCapacidade(){
     if (this.tamanho == this.elementos.length) {
