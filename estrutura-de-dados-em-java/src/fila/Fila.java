@@ -35,6 +35,23 @@ public class Fila {
     return this.elementos[0];
   }
 
+  public String desenfileirar(){
+    if(this.estaVazia()){
+      return null;
+    }
+
+    int i = 0;
+    String elementoASerRemovido = this.elementos[i];
+
+    while (i < this.tamanho - 1) {
+      this.elementos[i] = this.elementos[i + 1];
+      i++;
+    }
+    this.tamanho--;
+
+    return elementoASerRemovido;
+  }
+
   private void aumentarCapacidade(){
     if (this.tamanho == this.elementos.length) {
       String[] elementosNovos = new String[this.elementos.length * 2];
