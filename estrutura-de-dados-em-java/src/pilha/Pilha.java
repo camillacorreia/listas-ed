@@ -24,6 +24,10 @@ public class Pilha {
     }
   }
 
+  public boolean estaVazia(){
+    return this.tamanho == 0;
+  }
+
   private void aumentarCapacidade(){
     if (this.tamanho == this.elementos.length) {
       String[] elementosNovos = new String[this.elementos.length * 2];
