@@ -28,6 +28,10 @@ public class Pilha {
     return this.tamanho == 0;
   }
 
+  public String topo(){
+    return this.elementos[this.tamanho - 1];
+  }
+
   private void aumentarCapacidade(){
     if (this.tamanho == this.elementos.length) {
       String[] elementosNovos = new String[this.elementos.length * 2];
