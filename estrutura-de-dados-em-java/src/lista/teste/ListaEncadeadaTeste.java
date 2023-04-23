@@ -16,5 +16,8 @@ public class ListaEncadeadaTeste {
     System.out.println(lista);
 
     System.out.println("Tamanho = " + lista.getTamanho());
+
+    lista.limpar();
+    System.out.println(lista);
   }
 }
