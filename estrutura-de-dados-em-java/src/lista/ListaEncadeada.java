@@ -5,7 +5,7 @@ public class ListaEncadeada<T> {
   private No<T> ultimo;
   private int tamanho = 0;
 
-  public void adiciona(T elemento) {
+  public void adicionar(T elemento) {
     No<T> no = new No<T>(elemento);
 
     if (this.tamanho == 0) {
@@ -16,6 +16,10 @@ public class ListaEncadeada<T> {
     
     this.ultimo = no;
     this.tamanho++;
+  }
+
+  public int getTamanho() {
+    return this.tamanho;
   }
 
   @Override
