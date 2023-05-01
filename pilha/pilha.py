@@ -11,12 +11,19 @@ class Pilha:
       if self.tamanho < len(self.pilha):
         self.pilha[self.tamanho] = x
         self.tamanho += 1
+        return True
+      else:
+        return False
+    else:
+      return False
 
   def desempilhar(self):
     if self.tamanho == 0:
       return False
     
+    elemento = self.pilha[self.tamanho-1]
     self.tamanho -= 1
+    return elemento
 
   def imprimir(self):
     print(self.pilha[:self.tamanho])

@@ -15,12 +15,15 @@ class Fila:
   def desenfileirar(self):
     if self.tamanho == 0:
       return False
-    
+
+    elemento = self.fila[0]
+    self.tamanho -= 1
     i = 0
     while i < self.tamanho:
       self.fila[i] = self.fila[i + 1]
       i += 1
-    self.tamanho -= 1
+    self.fila[self.tamanho] = 0
+    return elemento
 
   def imprimir(self):
     print(self.fila[:self.tamanho])

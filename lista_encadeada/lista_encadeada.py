@@ -1,49 +1,43 @@
 from no import No
 
 class ListaEncadeada:
-    def __init__(self):
-        self.inicio = None
-        self.ultimo = None
-        self.tamanho = 0
+  def __init__(self):
+    self.primeiro = None
 
-    def adicionar(self, elemento):
-        no = No(elemento)
+  def inserir(self, elemento):
+    if self.consultar(elemento) is not None:
+      return False
 
-        if self.tamanho == 0:
-            self.inicio = no
+    no = No(elemento)
+    no.set_proximo(self.primeiro)
+    self.primeiro = no
+    return True
+
+  def consultar(self, elemento):
+    atual = self.primeiro
+    while atual is not None:
+      if atual.get_elemento() == elemento:
+        return True
+      atual = atual.get_proximo()
+
+    return False
+
+  def remover(self, elemento):
+    atual = self.primeiro
+    anterior = None
+
+    while atual is not None:
+      if atual.get_elemento() == elemento:
+        if anterior is None:
+          self.primeiro = atual.get_proximo()
         else:
-            self.ultimo.set_proximo(no)
-        
-        self.ultimo = no
-        self.tamanho += 1
+          anterior.set_proximo(atual.get_proximo())
+        return True
 
-    def get_tamanho(self):
-        return self.tamanho
+      anterior = atual
+      atual = atual.get_proximo()
 
-    def limpar(self):
-      atual = self.inicio
-      while atual is not None:
-        proximo = atual.get_proximo()
-        atual.set_elemento(None)
-        atual.set_proximo(None)
-        atual = proximo
-      self.inicio = None
-      self.ultimo = None
-      self.tamanho = 0
-
-    def __str__(self):
-      if self.tamanho == 0:
-        return "[]"
-
-      builder = "["
-      atual = self.inicio
-      i = 0
-      while i < self.tamanho - 1:
-        builder += str(atual.get_elemento()) + ","
-        atual = atual.get_proximo()
-        i += 1
-      builder += str(atual.get_elemento()) + "]"
-      return builder
+    return False
     
 lista = ListaEncadeada()
 lista.adicionar(1)
