@@ -11,6 +11,11 @@ class Lista:
       if self.tamanho < len(self.lista):
         self.lista[self.tamanho] = x
         self.tamanho += 1
+        return True
+      else:
+        return False
+    else:
+        return False
 
   def remover(self, x):
     i = 0
@@ -28,9 +33,9 @@ class Lista:
     while i < self.tamanho and self.lista[i] != x:
       i += 1
     if i != self.tamanho:
-      return i
+      return True
     else:
-      return -1
+      return False
 
   def imprimir(self):
     print(self.lista[:self.tamanho])

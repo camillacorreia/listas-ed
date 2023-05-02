@@ -4,16 +4,10 @@ class Pilha:
     self.tamanho = 0
 
   def empilhar(self, x):
-    i = 0
-    while i < self.tamanho and self.pilha[i] != x:
-      i += 1
-    if i == self.tamanho:
-      if self.tamanho < len(self.pilha):
-        self.pilha[self.tamanho] = x
-        self.tamanho += 1
-        return True
-      else:
-        return False
+    if self.tamanho < len(self.pilha):
+      self.pilha[self.tamanho] = x
+      self.tamanho += 1
+      return True
     else:
       return False
 

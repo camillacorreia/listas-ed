@@ -34,6 +34,3 @@ class PilhaEncadeada:
 
   def esta_vazia(self):
     return self.tamanho == 0
-
-  def get_tamanho(self):
-    return self.tamanho

@@ -43,6 +43,3 @@ class FilaEncadeada:
         atual = atual.get_proximo()
 
       return False
-
-    def get_tamanho(self):
-      return self.tamanho

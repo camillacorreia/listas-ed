@@ -4,25 +4,22 @@ class Fila:
     self.tamanho = 0
 
   def enfileirar(self, x):
-    i = 0
-    while i < self.tamanho and self.fila[i] != x:
-      i += 1
-    if i == self.tamanho:
-      if self.tamanho < len(self.fila):
-        self.fila[self.tamanho] = x
-        self.tamanho += 1
+    if self.tamanho < len(self.fila):
+      self.fila[self.tamanho] = x
+      self.tamanho += 1
+      return True
+    else:
+      return False
 
   def desenfileirar(self):
     if self.tamanho == 0:
       return False
 
-    elemento = self.fila[0]
+    elemento = self.fila[self.inicio]
+    self.fila[self.inicio] = 0
+    self.inicio = (self.inicio + 1) % len(self.fila)
     self.tamanho -= 1
-    i = 0
-    while i < self.tamanho:
-      self.fila[i] = self.fila[i + 1]
-      i += 1
-    self.fila[self.tamanho] = 0
+
     return elemento
 
   def imprimir(self):
