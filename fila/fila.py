@@ -2,6 +2,7 @@ class Fila:
   def __init__(self, maxelem):
     self.fila = [0] * maxelem
     self.tamanho = 0
+    self.inicio = 0
 
   def enfileirar(self, x):
     if self.tamanho < len(self.fila):

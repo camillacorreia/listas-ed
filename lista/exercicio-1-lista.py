@@ -4,18 +4,14 @@ class Lista:
     self.tamanho = 0
 
   def inserir(self, x):
-    i = 0
-    while i < self.tamanho and self.lista[i] != x:
-      i += 1
-    if i == self.tamanho:
-      if self.tamanho < len(self.lista):
-        self.lista[self.tamanho] = x
-        self.tamanho += 1
-        return True
-      else:
-        return False
+    if self.consultar(x):
+      return False
+    if self.tamanho < len(self.lista):
+      self.lista[self.tamanho] = x
+      self.tamanho += 1
+      return True
     else:
-        return False
+      return False
 
   def remover(self, x):
     i = 0
