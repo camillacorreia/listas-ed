@@ -48,7 +48,7 @@ class ArvoreBinaria:
     self._imprimir_em_ordem_recursivo(self.raiz)
 
   def _imprimir_em_ordem_recursivo(self, no_atual):
-    if no_atual:
+    if no_atual is not None:
       self._imprimir_em_ordem_recursivo(no_atual.esquerda)
       print(no_atual.valor, end=" ")
       self._imprimir_em_ordem_recursivo(no_atual.direita)
